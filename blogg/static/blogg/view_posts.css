@@ -1,0 +1,34 @@
+h1{
+  font-size:47px;
+  color: white;
+  text-align: center;
+}
+
+.header{
+  font-size:67px;
+  color: white;
+  text-align: center;
+}
+
+.mainbody{
+  style=color:white;
+  margin-left: 90px;
+  color: white;
+
+}
+
+.mainbody h3{
+  font-size: 33px;
+  font-weight: bolder;
+}
+.mainbody p{
+  font-size: 20px;
+}
+
+.comments p{
+  font-size: 15px;
+}
+
+.credits{
+  font-size: 15px;
+}

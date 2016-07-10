@@ -1,0 +1,58 @@
+{% extends 'blogg/base.html' %}
+
+{% block css %}
+{% load staticfiles %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'blogg/index.css' %}" />
+ {% endblock %}
+
+ {%block title%} home{%endblock%}
+
+{%block body%}
+
+<h1>BLOGe</h1><hr>
+
+<div class = "side-part">
+
+        {% if  user.is_authenticated %}
+
+            <h3> Welcome {{ user.username }} </h3>
+
+            <a href="{% url 'blogg:add_post' %}">
+                <button type="button">Add Post</button>
+            </a><br>
+
+            <a href="{% url 'blogg:logout' %}">
+                <button type="button">Logout </button>
+            </a>
+
+        {% else %}
+            <h3> Welcome Guest </h3>
+
+            {% if error_message %}
+                <p><strong>{{ error_message }}</strong></p>
+            {% endif %}
+            <form action="{% url 'blogg:login' %}", method="post">
+
+                {% csrf_token %}
+                <input type="text", name="username", value = "{{ username }}", placeholder="username" ><br>
+                <input type="password", name="password", value = "{{ password }}",placeholder="password"><br>
+                <button type="submit", value="submit">Log In </button><br>
+
+            </form>
+            <p><strong>Don't have an account yet?</strong></p>
+
+            <a href="{% url 'blogg:signup' %}">
+                <button type="button">Sign Up </button>
+            </a>
+
+        {% endif %}
+        <br><br><br><br>
+        <a href="{% url 'blogg:view_posts' %}">
+            <button type="button">View Recent Posts</button>
+        </a>
+
+</div>
+
+
+{%endblock%}

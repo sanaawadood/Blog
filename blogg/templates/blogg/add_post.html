@@ -1,0 +1,35 @@
+{% extends 'blogg/base.html' %}
+
+{% block css %}
+
+    <script src="http://js.nicedit.com/nicEdit-latest.js"></script>
+    <script>
+    //<![CDATA[
+          bkLib.onDomLoaded(function() { nicEditors.allTextAreas() });
+    //]]>
+    </script>
+
+{% endblock %}
+
+ {%block title%} newpost{%endblock%}
+
+{%block body%}
+<div style="text-align:center; background-color:white;">
+
+      <form action="{% url 'blogg:add_post' %}" method="post" id="postform">
+          {% csrf_token %}
+          <input type="text" name="heading"  placeholder="heading.." style="padding: 12px 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;">
+          <textarea name="content"  form = "postform" style="width:1400px; height:500px;">
+            enter text here...
+          </textarea>
+          <input type="submit" value="Submit Post" style="background-color: grey;
+          font-size: 20px;
+          padding: 12px 6px;
+          margin: 5px;">
+      </form>
+
+</div>
+
+{%endblock%}

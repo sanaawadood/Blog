@@ -1,0 +1,14 @@
+<html>
+
+  <head>
+    {% block css %} {% endblock %}
+      <title>BLOGe - {% block title %}{% endblock %}</title>
+  </head>
+
+{% load staticfiles %}
+
+  <body style="background-image: url( {% static 'blogg/images/band.jpg' %} )">
+    {%block body%} {%endblock%}
+  </body>
+
+</html>

@@ -1,0 +1,25 @@
+{% extends 'blogg/base.html' %}
+
+
+ {%block title%} signup{%endblock%}
+
+{%block body%}
+<div style="text-align:center">
+
+  {% if error_message %}
+      <p><strong>{{ error_message }}</strong></p>
+  {% endif %}
+
+    <form action="{% url 'blogg:signup' %}", method="post", style="padding: 22px">
+
+        {% csrf_token %}
+        <input type="text", name="first_name", value = "{{ first_name }}", placeholder="first name" ><br>
+        <input type="text", name="last_name", value = "{{ last_name }}", placeholder="last name" ><br>
+        <input type="text", name="username", value = "{{ username }}", placeholder="username" ><br>
+        <input type="password", name="password", value = "{{ password }}",placeholder="password"><br>
+        <input type="submit" value="SignUp">
+
+    </form>
+
+</div>
+{%endblock%}
